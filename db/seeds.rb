@@ -5,3 +5,30 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "emptying database"
+
+Response.destroy_all
+Discussion.destroy_all
+User.destroy_all
+
+puts "creating users"
+
+User.create!(nickname: "Sirien")
+User.create!(nickname: "Jerson")
+User.create!(nickname: "Gurney")
+User.create!(nickname: "Naokimi")
+User.create!(nickname: "ShadoWWW")
+
+puts "creating discussions"
+
+titles = ["Dungeons & Dragons 5e", "Shadowrun", "Vampire the Masquerade 5e", "DrD", "Fate Core (4e)", "DrD+", "DrD II", "Pathfinder 2", "GUMSHOE", "FAE"]
+10.times do
+  discussion = Discussion.new(title: titles.delete_at(rand(0..(titles.size - 1))), first_post: Faker::Lorem.paragraphs)
+  discussion.user = rand(User.first..User.last)
+  discussion.save!
+end
+
+puts "populating discussions with responsenses"
+
+puts "finished"
