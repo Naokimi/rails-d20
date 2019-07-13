@@ -24,11 +24,18 @@ puts "creating discussions"
 
 titles = ["Dungeons & Dragons 5e", "Shadowrun", "Vampire the Masquerade 5e", "DrD", "Fate Core (4e)", "DrD+", "DrD II", "Pathfinder 2", "GUMSHOE", "FAE"]
 10.times do
-  discussion = Discussion.new(title: titles.delete_at(rand(0..(titles.size - 1))), first_post: Faker::Lorem.paragraphs)
-  discussion.user = rand(User.first..User.last)
+  discussion = Discussion.new(title: titles.delete_at(rand(0..(titles.size - 1))), first_post: Faker::Lorem.paragraph)
+  discussion.user = User.all.sample
   discussion.save!
 end
 
-puts "populating discussions with responsenses"
+puts "populating discussions with responses"
+
+100.times do
+  response = Response.new(content: Faker::Lorem.paragraph)
+  response.user = User.all.sample
+  response.discussion = Discussion.all.sample
+  response.save!
+end
 
 puts "finished"
