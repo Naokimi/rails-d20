@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_07_13_013048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "discussions", force: :cascade do |t|
+    t.string "title"
+    t.text "first_post"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_discussions_on_user_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "content"
+    t.bigint "discussion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discussion_id"], name: "index_responses_on_discussion_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "discussions", "users"
+  add_foreign_key "responses", "discussions"
 end
