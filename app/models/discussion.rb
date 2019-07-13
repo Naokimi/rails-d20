@@ -3,4 +3,5 @@ class Discussion < ApplicationRecord
   has_many :responses
 
   validates :title, presence: true
+  validates :user, presence: true
 end

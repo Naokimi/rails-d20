@@ -66,7 +66,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="864" y="458" name="discussions">
+<table x="697" y="389" name="discussions">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -84,7 +84,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1135" y="472" name="responses">
+<table x="1158" y="561" name="responses">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -94,6 +94,10 @@
 <row name="discussion_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="discussions" row="id" />
+</row>
+<row name="user_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>

@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2019_07_13_013048) do
   create_table "responses", force: :cascade do |t|
     t.string "content"
     t.bigint "discussion_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["discussion_id"], name: "index_responses_on_discussion_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,5 @@ ActiveRecord::Schema.define(version: 2019_07_13_013048) do
 
   add_foreign_key "discussions", "users"
   add_foreign_key "responses", "discussions"
+  add_foreign_key "responses", "users"
 end
