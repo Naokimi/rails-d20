@@ -18,7 +18,7 @@
             <%= yield %>
           </div>
           <div class="col-4">
-            <%= render 'shared/newest_discussions' %>
+            <%= render 'shared/newest_discussions', discussions: Discussion.all %>
           </div>
         </div>
       </div>

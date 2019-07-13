@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
-
-<p>
-  <strong>First post:</strong>
-  <%= @discussion.first_post %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @discussion.user %>
-</p>
-
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
 <%= link_to 'Back', discussions_path %>
+
+<div class="card-product d-flex align-items-start">
+  <img src="http://www.d20.cz/data/U/unknown.png">
+  <div class="card-product-infos w-100">
+    <div class="d-flex justify-content-between">
+      <p><%= @discussion.user.nickname %></p>
+      <p><%= link_to 'Edit', edit_discussion_path(@discussion) %> <%= link_to 'Delete', discussion_path(@discussion), method: :delete %></p>
+    </div>
+    <h6><%= @discussion.title %></h6>
+    <p><%= @discussion.first_post %></p>
+  </div>
+</div>
+
+
+
+<% @discussion.responses.each do |response| %>
+  <div class="card-product d-flex align-items-start">
+    <img src="http://www.d20.cz/data/U/unknown.png">
+    <div class="card-product-infos w-100">
+      <div class="d-flex justify-content-between">
+        <h6><%= response.user.nickname %></h6>
+        <h6><%= link_to 'Edit', edit_response_path(response) %> <%= link_to 'Delete', response_path(response), method: :delete %> #<%= response.id %></h6>
+      </div>
+      <p><%= response.content %></p>
+    </div>
+  </div>
+<% end %>
