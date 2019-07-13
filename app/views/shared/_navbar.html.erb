@@ -1,26 +1,28 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/13428460_1566426603660100_7829659200686389201_n.jpg?_nc_cat=109&_nc_oc=AQkSZ4h_yiI2wg2Kc6YG_BOoNJqtOkC05f2tofD4Q06MAG0NdZG3AX4PU6uEJDNw0Vk&_nc_ht=scontent-nrt1-1.xx&oh=9bffe5341fc8ffc9aa315fe9b86ea829&oe=5DA8E00A" %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <h2 class="d-none d-sm-inline">D20 V KOSTCE</h2>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", "#", class: "nav-link" %>
+        <%= link_to "Nový článek", "#", class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link" %>
+      <li class="nav-item active">
+        <%= link_to "Nová diskuze", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
+          <%= link_to "Zprávy", "#", class: "dropdown-item" %>
+          <%= link_to "Nastavení", "#", class: "dropdown-item" %>
+          <%= link_to "Odhlášení", "#", class: "dropdown-item" %>
         </div>
       </li>
     </ul>
