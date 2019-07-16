@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 <%= link_to 'Back', discussions_path %>
 
-<div class="card-product d-flex align-items-start">
-  <img src="http://www.d20.cz/data/U/unknown.png">
-  <div class="card-product-infos w-100">
-    <div class="d-flex justify-content-between">
-      <p><%= @discussion.user.nickname %></p>
-      <p><%= link_to 'Edit', edit_discussion_path(@discussion) %> <%= link_to 'Delete', discussion_path(@discussion), method: :delete %></p>
+<div class="container bg-secondary p-3 mb-3">
+  <div class="d-flex">
+    <img src="http://www.d20.cz/data/U/unknown.png" style="width: 120px;">
+      <div class="w-100">
+        <div class="d-flex justify-content-between">
+          <p><%= @discussion.user.nickname %></p>
+          <p><%= link_to 'Edit', edit_discussion_path(@discussion) %> <%= link_to 'Delete', discussion_path(@discussion), method: :delete %></p>
+        </div>
+      <h3><%= @discussion.title %></h6>
     </div>
-    <h6><%= @discussion.title %></h6>
-    <p><%= @discussion.first_post %></p>
   </div>
+  <p><%= @discussion.first_post %></p>
 </div>
-
-
 
 <% @discussion.responses.each do |response| %>
   <div class="card-product d-flex align-items-start">
